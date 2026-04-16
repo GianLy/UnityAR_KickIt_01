@@ -11,13 +11,21 @@ public class GameControl : MonoBehaviour
         public Transform DestinoTransform;
         public Animator DireccionAnimator;
         public Animator ElevacionAnimator;
+        public Animator IndicadorAnimator;
 
     private void Start()
     {
         DireccionAnimator.speed = 1;
         ElevacionAnimator.speed = 0;
     }
-    public void PatearPelota()
+
+    public void DetenerBarraFuerza()
+    {
+        IndicadorAnimator.speed = 0;
+        IndicadorAnimator.Update(0);
+    }   
+    
+     public void PatearPelota()
         {
 
             Vector3 direccion = (DestinoTransform.position - BalonTransforn.position). normalized;
@@ -36,5 +44,6 @@ public class GameControl : MonoBehaviour
         BalonTransforn.position = new Vector3(0f, 0.5f, 0f);
         BalonTransforn.rotation = Quaternion.identity;
     }
+
 
 }
